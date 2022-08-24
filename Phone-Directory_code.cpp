@@ -3,6 +3,7 @@ using namespace std;
 
 class TrieNode
 {
+    public:
 	unordered_map<char,TrieNode*> child;
 
 	bool isLast;
@@ -16,7 +17,7 @@ class TrieNode
 	}
 };
 
-TrieNode *root = NULL;
+TrieNode *root = new TrieNode();
 
 void insert(string s)
 {
@@ -70,14 +71,14 @@ void displayContacts(string str)
 
 		if (curNode == NULL)
 		{
-			cout << "nNo Results Found for"<< prefix
-				<< "/n";
+			cout << "No Results Found for"<< prefix
+				<<endl;
 			i++;
 			break;
 		}
 
-		cout << "nSuggestions based on "<< prefix
-			<<" are n";
+		cout<<endl<<"Suggestions based on "<< prefix
+			<<" are"<<endl;
 		displayContactsUtil(curNode, prefix);
 
 		prevNode = curNode;
@@ -86,8 +87,8 @@ void displayContacts(string str)
 	for (; i<len; i++)
 	{
 		prefix += (char)str[i];
-		cout << "nNo Results Found for "<< prefix
-			<< " n";
+		cout << "No Results Found for "<< prefix
+			<<endl;
 	}
 }
 
@@ -113,3 +114,4 @@ int main()
 
 	return 0;
 }
+
