@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct TrieNode
+class TrieNode
 {
 	unordered_map<char,TrieNode*> child;
 
